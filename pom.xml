@@ -7,15 +7,62 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>sbootmybatis Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  
+  <build>
+    <finalName>sbootmybatis</finalName>
+    <plugins>
+    	<plugin>
+    		<groupId>org.springframework.boot</groupId>
+    		<artifactId>spring-boot-maven-plugin</artifactId>
+    	</plugin>
+    </plugins>
+  </build>
+  
+  
+  <parent>
+  	<groupId>org.springframework.boot</groupId>
+  	<artifactId>spring-boot-starter-parent</artifactId>
+  	<version>1.5.7.RELEASE</version>
+  </parent>
+  
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <!-- web模块 -->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+    <!-- spring-boot-starter基础 -->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter</artifactId>
+    </dependency>
+	<!-- spring-boot-starter-test用来做单元测试 -->
+    <dependency>
+    	<groupId>org.springframework.boot</groupId>
+    	<artifactId>spring-boot-starter-test</artifactId>
+    	<scope>test</scope>
+    </dependency>
+    <!-- 入连接mysql的必要依赖mysql-connector-java -->
+    <dependency>
+    	<groupId>mysql</groupId>
+    	<artifactId>mysql-connector-java</artifactId>
+    	<version>5.1.21</version>
+    </dependency>
+    
+    <!-- 
+    引入整合MyBatis的核心依赖mybatis-spring-boot-starter
+    这里不引入spring-boot-starter-jdbc依赖，是由于mybatis-spring-boot-starter中已经包含了此依赖
+     -->
+    <dependency>
+    	<groupId>org.mybatis.spring.boot</groupId>
+    	<artifactId>mybatis-spring-boot-starter</artifactId>
+    	<version>1.1.1</version>
+    </dependency>
   </dependencies>
-  <build>
-    <finalName>sbootmybatis</finalName>
-  </build>
+  
 </project>
