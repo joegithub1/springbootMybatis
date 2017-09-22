@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hj.sbootmybatis.mapper.DepartmentMapper">
+ 	<resultMap type="cn.hj.sbootmybatis.po.Department" id="BaseResultMap">
+ 		<id column="depa_id" property="depaId" jdbcType="INTEGER"/>
+ 		<result column="depa_name" property="depaName" jdbcType="VARCHAR"/>
+ 		<result column="depa_no" property="depaNo" jdbcType="INTEGER"/>
+ 		<result column="is_del" property="isDel" jdbcType="INTEGER"/>
+ 		<result column="depa_status" property="status" jdbcType="INTEGER"/>
+ 	</resultMap>
+ 	
+ 	
+ 	<!-- 
+ 	resultType="Map" 返回的是数据库字段
+ 	 -->
+ 	<select id="findById" parameterType="Long" resultType="Map">
+ 		select * from t_department d where d.depa_id = #{id}
+ 	</select>
+ 
+ 	<!-- 
+ 	resultMap="BaseResultMap"返回实体类对象属性
+ 	 -->
+ 	<select id="findByIdObj" parameterType="Long" resultMap="BaseResultMap">
+ 		select * from t_department d where d.depa_id = #{id}
+ 	</select>
+ 
+ 
+ </mapper>
