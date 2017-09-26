@@ -24,10 +24,12 @@ public class DepartmentController {
 		Map<String, Object> map=null;
 		Department department=null;
 		//返回数据库字段
+		System.out.println("返回数据库字段 用 as");
 		map = departmentMapper.findById(1L);
 		System.out.println(map);
 		
 		//返回实体类属性字段
+		System.out.println("返回实体类属性");
 		department = departmentMapper.findByIdObj(2L);
 		if(null != department){
 			System.out.println(department.toString());
